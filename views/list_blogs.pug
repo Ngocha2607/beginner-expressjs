@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title Blog List
+    body
+        include ./header.pug
+        if(user)
+            p.greetings#people Hello #{user}
+
+            img(src="./background_website.jpg" alt="background image" width="100" height=100) 
+            h4 Create New Blog
+
+            form(action = "/blogs", method = "POST")
+                div
+                    label(for = "title") Title:
+                    input(name = "title")
+                br
+                div
+                    label(for = "content") Content:
+                    textarea(name="content" cols="12" rows="8")
+                br
+                button(type = "submit") Submit
+        else 
+            a(href = "/sign_up") Sign Up
+        include ./footer.pug
